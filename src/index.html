@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0d6efd"> 
+   <meta name="msapplication-navbutton-color" content="#0d6efd">
+   <meta name="apple-mobile-web-app-status-bar-style" content="#0d6efd"> 
+  <link href="./bootstrap/bootstrap@5.0.0-alpha2.min.css" rel="stylesheet">
+  <link href="./bootstrap/chartist.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+  <title>2DO</title>
+</head>
+<body>
+  <nav class="nav fixed-top bg-primary" style="padding: 8px;"><button class="btn btn-outline-warning" id="save" onclick="save();" style="margin-right: 8px;">&#x2191;backup</button><button class="btn btn-outline-warning" id="save" onclick="load();">&#x2193;setup</button><h2 class="title">2DO</h2></nav>
+  
+	<div id="program" class="container raw" style="margin-top: 100px;">
+	  
+	 <div class="bg-dark" id="form-parent">
+	  <form>
+      <input type="text" class="form-control todoTitle" id="inputTitle" placeholder="your 2do is about what?"/>
+      
+      <textarea placeholder="say more about your 2do" class="form-control todoNote" id="inputNote"></textarea><br/>
+      <strong style="font-family: google;color: white;">please select a time: </strong><br/>
+      <input type="time" id="selectedTime" min="08:00" max="22:00"/><br/>
+      
+      <strong style="font-family: google;color: white;">please select a date: </strong><br/>
+      <input type="date" id="selectedDate" min="2021-03-01" max="2021-03-27"/><br/><br/>
+      <button type="submit" id="send" class="btn btn-success" onclick="document.getElementById('program').innerHTML += `<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 btn btn-outline-warning todo' style='padding-bottom: 10px;' ondblclick='hide(this);'><strong>title: </strong>${document.getElementById('inputTitle').value}<br><strong >note: </strong>${document.getElementById('inputNote').value}<br/><strong >for: </strong>${document.getElementById('selectedDate').value+' <strong>at</strong> '+document.getElementById('selectedTime').value}<br/><center><nav><ul><li class='btn2' onclick='okay(this);'>✓<span></span><span></span><span></span><span></span><span></span><span></span><span></span></li><li class='btn1' onclick='showToast();'>✘<span></span><span></span><span></span><span></span><span></span><span></span><span></span></li><div id='toastBox' style='text-align: center;'>double click '✘' to remove this 2do</div></ul></nav></center></div><br/><br/>`">SUBMIT</button>
+    </form>
+    </div>
+      <button type="submit" id="openclose" class="btn btn-secondary" onclick="panel();">&#x2191;</button>
+  </div>
+  
+  <script type="text/javascript" charset="utf-8">
+      var repeatTime = 0;
+      async function panel() {
+      let btn = document.getElementById('openclose');
+      let formParent = document.getElementById('form-parent');
+        
+        if (++repeatTime%2 == 0) {
+          btn.style = "border-radius: 50px;";
+          btn.innerHTML = "&#x2193;";
+          formParent.style = "display: none;";
+        } else{
+          btn.style = "border-top-right-radius: 0px;border-top-left-radius: 0px;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;";
+          btn.innerHTML = "&#x2191;";
+          formParent.style = "display: show;";
+        }
+      }
+      function showToast() {
+        let x = document.getElementById("toastBox");
+        x.className = "show";
+        setTimeout(function(){x.className = x.className.replace("show", ""); }, 2000);
+      }
+      function hide(obj) {
+          obj.style = "display: none;";
+      }
+      function okay(obj) {
+        obj.style = "pointer-events:none;filter: grayscale(100%);";
+      }
+      function save() {
+        localStorage.setItem(now(),document.getElementById("program").innerHTML);
+      }
+      function load() {
+        document.getElementById("program").innerHTML = localStorage.getItem(prompt("load which datetime? ", now()));
+      }
+      function now() {
+        let d = new Date;
+        return d.getFullYear()+"/"+d.getMonth()+"/"+d.getDay()+"-"+d.getHours();
+      }
+  </script>
+</body>
+</html>
