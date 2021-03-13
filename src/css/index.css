@@ -1,0 +1,119 @@
+* {
+  transition: .3s ease-in-out;
+}
+#save:hover {
+  transition: .3s ease-in-out;
+  background-color: #ffc107;
+  color: #212121;
+  font-weight: bold;
+  border-color: #dea600;
+  border-width: 3px;
+}
+#title {
+  color: #198754;
+  margin: 10px;
+  font-family: roboto;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+#form-parent {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 12px;
+  transition: .3s ease-in-out;
+}
+.todoTitle {
+  color: #ffc107;
+  font-weight: bold;
+  font-family: ubuntu;
+}
+.todoNote {
+  font-family: google;
+  margin-top: 10px;
+  height: 300px;
+}
+nav ul {
+  list-style-type: none;margin: 0;padding: 0;display: flex;text-align: center;align-items: center;
+}
+nav ul .btn1 {
+  --c: #dc3545;color: var(--c);font-size: 16px;border: 0.3em solid var(--c);border-radius: 50px;width: 3em;height: 3em;text-transform: uppercase;font-weight: bold;letter-spacing: 0.1em;text-align: center;line-height: 3em;position: relative;overflow: hidden;transition: 0.5s; margin-left: 10px;
+}
+nav ul .btn2 {
+  --c: #198754;color: var(--c);font-size: 16px;border: 0.3em solid var(--c);border-radius: 50px;width: 3em;height: 3em;text-transform: uppercase;font-weight: bold;letter-spacing: 0.1em;text-align: center;line-height: 3em;position: relative;overflow: hidden;transition: 0.5s;
+}
+nav ul li span {
+  position: absolute;width: 25%;height: 100%;background-color: var(--c);transform: translateY(150%);border-radius: 50%;left: calc((var(--n) - 1) * 25%);transition: 0.5s;transition-delay: calc((var(--n) - 1) * 0.1s);z-index: -1;user-select: none;
+}
+nav ul li:hover {
+  color: white;
+}
+nav ul li:hover span {
+  transform: translateY(0) scale(2);
+}
+nav ul li span:nth-child(1) {--n: 1;}
+nav ul li span:nth-child(2) {--n: 2;}
+nav ul li span:nth-child(3) {--n: 3;}
+nav ul li span:nth-child(4) {--n: 4;}
+nav ul li span:nth-child(5) {--n: 5;}
+nav ul li span:nth-child(6) {--n: 6;}
+nav ul li span:nth-child(7) {--n: 7;}
+
+#send {
+  font-weight: bold;
+  width: 100%;
+  font-family: google;
+  margin-top: 10px;
+}
+#openclose {
+  font-weight: bold;
+  width: 100%;
+  font-family: google;
+  margin-bottom: 20px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transition: .3s ease-in-out;
+}
+
+.title {
+  color: white;
+  margin: 10px;
+  font-family: roboto;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+#addNote {
+  transition: .3s ease-in-out;
+  font-size: 60%;
+  margin-right: 10px;
+  margin-left: 3px;
+}
+.todo {
+  transition: .5s ease-in-out;
+  margin-left: 8px;
+  text-align: left;
+  width: 95%;
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+}
+strong{
+  color: #ffc107;
+  font-weight: bold;
+}
+#toastBox {visibility: hidden;min-width: 250px;margin-left: -125px;background-color: #333;color: #fff;text-align: center;border-radius: 2px;padding: 16px;position: fixed;z-index: 1;left: 50%; bottom: 30px;}#toastBox.show{visibility: visible;-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;animation: fadein 0.5s, fadeout 0.5s 2.5s;}@-webkit-keyframes fadein {from {bottom: 0; opacity: 0;}to {bottom: 30px; opacity: 1;}}@keyframes fadein {from {bottom: 0; opacity: 0;}to {bottom: 30px; opacity: 1;}}@-webkit-keyframes fadeout {from {bottom: 30px; opacity: 1;}to {bottom: 0; opacity: 0;}}
+@font-face {
+  font-family: roboto;
+  src: url("../Asset/roboto.ttf");
+}
+@font-face {
+  font-family: google;
+  src: url("../Asset/googleb.ttf");
+}
+@font-face {
+  font-family: ubuntu;
+  src: url("../Asset/Ubuntu.ttf");
+}
