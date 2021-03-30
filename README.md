@@ -7,6 +7,6 @@ projectAuthor: Bahman-Ahmadi
 
 projectLanguages: HTML5, CSS3, JavaScript
 
-projectInfo: a simple todo list template
+projectInfo: a simple todo list tamplate
 
 projectVersion: 1.0.0Alpha
